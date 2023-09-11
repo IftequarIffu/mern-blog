@@ -9,6 +9,11 @@ import Homepage from './pages/Homepage';
 import CreatePost from './pages/CreatePost';
 import Post from './pages/Post';
 import EditPost from './pages/EditPost';
+import axios from 'axios';
+
+axios.defaults.withCredentials = true
+
+
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>

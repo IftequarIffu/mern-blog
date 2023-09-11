@@ -13,10 +13,10 @@ const Post = () => {
             <h3 className="mt-6 text-2xl text-start font-bold md:text-4xl  text-gray-900">
                 How to position your furniture for positivity?
             </h3>
-            <p className='mt-2 text-zinc-500'>10th August, 2023</p>
+            <p className='mt-2 text-zinc-500 dark:text-white'>10th August, 2023</p>
             <div className='flex space-x-2 items-center'>
                 <img className="w-5 h-5 rounded-full" src="https://source.unsplash.com/random" alt="Rounded avatar" />
-                <h1 className=' text-zinc-500'>By Kent Francois</h1>
+                <h1 className=' text-zinc-500 dark:text-white'>By Kent Francois</h1>
             </div>
 
             <p className='mt-8'>
