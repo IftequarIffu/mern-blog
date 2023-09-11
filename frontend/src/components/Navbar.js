@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Navbar = () => {
 
 
-    const isLoggedIn = true
+    const isLoggedIn = false
 
 
     return (
