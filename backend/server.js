@@ -7,8 +7,14 @@ const cors = require('cors')
 const corsConfig = require('./config/cors')
 const passport = require('passport')
 require('./config/oauth')
+const multer = require('multer')
+const storage = multer.memoryStorage()
+const upload = multer({storage})
+
+
 
 const userRouter = require('./routes/userRoutes')
+const postRouter = require('./routes/postRoutes')
 
 
 const port = process.env.EXPRESS_PORT || 4321
@@ -17,15 +23,15 @@ const app = express()
 
 connectDB()
 
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(cors(corsConfig))
 app.use(passport.initialize());
 app.use(cookieParser())
-
+app.use(upload.single("bannerPic"))
 
 app.use('/', userRouter)
-
+app.use('/posts', postRouter)
 
 
 app.get('/', (req, res) => {
