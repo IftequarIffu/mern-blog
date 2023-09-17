@@ -1,5 +1,5 @@
 const express = require('express')
-const {loginMethod, registerMethod} = require('../controllers/userController')
+const {loginMethod, registerMethod, isLoggedIn, logOut} = require('../controllers/userController')
 const passport = require('passport')
 const {generateToken} = require('../utils/authUtils')
 
@@ -15,7 +15,8 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
   function(req, res) {
     // Successful authentication, redirect home.
     const userId = req.user.id
-    const token = generateToken({userId: userId})
+    const userName = req.user.name
+    const token = generateToken({userId, userName})
     res.cookie('jwt', token, {
         expiresIn: '30d'
     })
@@ -23,5 +24,9 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
     // res.json("Successful")
     res.redirect(process.env.CLIENT_URI)
   });
+
+  userRouter.get('/isLoggedIn', isLoggedIn)
+
+  userRouter.get('/logout', logOut)
 
   module.exports = userRouter

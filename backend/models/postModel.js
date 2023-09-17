@@ -29,7 +29,8 @@ const postSchema = mongoose.Schema({
     author:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userModel',
-        required: true
+        required: true,
+        default: '64feb0d3dfb6517f23038423'
     }
 },
 {

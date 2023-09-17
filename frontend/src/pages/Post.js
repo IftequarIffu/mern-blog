@@ -1,32 +1,69 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 
 const Post = () => {
+
+    const params = useParams();
+    const postId = params.postId
+    const [post, setPost] = useState(null)
+    // console.log(postId)
+
+    useEffect(() => {
+
+        const getPost = async (postId) => {
+
+            const response = await axios.get(`http://localhost:1111/posts/${postId}`)
+            const post = response.data
+            // console.log(post)
+            setPost(post)
+            // if(post){
+            //     const tag = await document.getElementById("content")
+            //     tag.innerHTML = post.content
+            //     console.log(tag)
+            // }
+
+        }
+
+        getPost(postId)
+
+        
+
+    }, [postId])
+
+
+
     return (
-        <div className='w-4/5 md:max-w-3xl mx-auto '>
-            <img
-                alt="Office"
-                src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                className="h-36 w-full object-cover md:h-56"
-            />
+        <div className='w-4/5 md:max-w-3xl mx-auto dark:text-white '>
             
-            <h3 className="mt-6 text-2xl text-start font-bold md:text-4xl  text-gray-900 dark:text-white">
-                How to position your furniture for positivity?
-            </h3>
-            <p className='mt-2 text-zinc-500 dark:text-white'>10th August, 2023</p>
-            <div className='flex space-x-2 items-center'>
-                <img className="w-5 h-5 rounded-full" src="https://source.unsplash.com/random" alt="Rounded avatar" />
-                <h1 className=' text-zinc-500 dark:text-white'>By Kent Francois</h1>
-            </div>
-
-            <p className='mt-8'>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae
-                dolores, possimus pariatur animi temporibus nesciunt praesentium dolore
-                sed nulla ipsum eveniet corporis quidem, mollitia itaque minus soluta,
-                voluptates neque explicabo tempora nisi culpa eius atque dignissimos.
-                Molestias explicabo corporis voluptatem?
-
-            </p>
+            {
+                post ? (
+                    <div>
+                    <div className='flex justify-center'>
+                        <img src={post.bannerPic.url} className='rounded-lg max-h-84' alt="bannerPic"/>
+                    </div>
+                    <h1 className='mt-6 text-5xl text-center font-semibold'>{post.title}</h1>
+                    <p className='mt-4 text-3xl text-center font-light'>{post.summary}</p>
+                    <p className='mt-4 text-xl p-2' id="content">
+                        {/* {
+                            () => {
+                                if(post){
+                                    const tag = document.getElementById("content")
+                                    tag.innerHTML = post.content
+                                    console.log(tag)
+                                }
+                                else{
+                                    const tag = document.getElementById("content")
+                                    tag.innerHTML = null
+                                }
+                            }
+                        } */}
+                    </p>
+                    </div>
+                ) : (<h1>Loading</h1>)
+            }
+            
             
         </div>
     )

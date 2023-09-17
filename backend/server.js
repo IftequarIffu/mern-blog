@@ -12,7 +12,6 @@ const storage = multer.memoryStorage()
 const upload = multer({storage})
 
 
-
 const userRouter = require('./routes/userRoutes')
 const postRouter = require('./routes/postRoutes')
 
@@ -28,7 +27,7 @@ app.use(express.json())
 app.use(cors(corsConfig))
 app.use(passport.initialize());
 app.use(cookieParser())
-app.use(upload.single("bannerPic"))
+
 
 app.use('/', userRouter)
 app.use('/posts', postRouter)

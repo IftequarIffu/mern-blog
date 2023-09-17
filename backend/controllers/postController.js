@@ -13,6 +13,25 @@ const getPosts = (asyncHandler(async (req, res) => {
     }
 }))
 
+const getPostById = (asyncHandler(async (req, res) => {
+
+    
+    try {
+
+        const postId = req.params.postId
+        // res.json(req.params.postId)
+        // console.log(postId)
+        const post = await postModel.findById(postId)
+        
+        res.json(post)
+        res.status(200)
+    } catch (error) {
+        throw new Error(error)
+    }
+}))
+
+
+
 const createPost = (asyncHandler(async (req, res) => {
 
     try {
@@ -40,4 +59,4 @@ const createPost = (asyncHandler(async (req, res) => {
 
 }))
 
-module.exports = {getPosts, createPost}
+module.exports = {getPosts, createPost, getPostById}

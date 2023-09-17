@@ -1,6 +1,7 @@
 const asyncHandler = require('express-async-handler')
 const userModel = require('../models/userModel')
 const {hashPassword, generateToken, comparePassword } = require('../utils/authUtils')
+const jwt = require('jsonwebtoken')
 
 
 
@@ -57,9 +58,10 @@ const loginMethod = asyncHandler(async (req, res) => {
         else{
             
             const userId = doesUserExist._id.toString()
-            console.log(userId)
-            const token = generateToken({userId: userId})
-            console.log(token)
+            const userName = doesUserExist.name
+            // console.log(userId)
+            const token = generateToken({userId, userName})
+            // console.log(token)
             res.cookie('jwt', token, {
                 expiresIn: '30d'
             })
@@ -68,12 +70,40 @@ const loginMethod = asyncHandler(async (req, res) => {
             res.json("Login successful")
         }
     }
+})
 
-    res.status(400)
-    throw new Error("Something went wrong")
+const isLoggedIn = asyncHandler(async(req, res) => {
+
+    try {
+        const token = req.cookies.jwt
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
+        const userId = decoded.userId
+        const userName = decoded.userName
+        res.status(200)
+        res.json({
+            userId,
+            userName
+        })
+
+
+    } catch (error) {
+        console.log(error)
+        res.status(400)
+        throw new Error(error)
+    }
+    
+
+})
+
+const logOut = asyncHandler(async (req, res) => {
+
+    res.cookie('jwt', '')
+    res.status(200)
+    res.redirect(process.env.CLIENT_URI)
+
 })
 
 
 
 
-module.exports = { loginMethod, registerMethod }
+module.exports = { loginMethod, registerMethod, isLoggedIn, logOut }
