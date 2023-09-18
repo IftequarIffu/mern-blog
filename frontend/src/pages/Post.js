@@ -41,7 +41,7 @@ const Post = () => {
                 post ? (
                     <div>
                     <div className='flex justify-center'>
-                        <img src={post.bannerPic.url} className='rounded-lg max-h-84' alt="bannerPic"/>
+                        <img src={post.bannerPic?.url} className='rounded-lg max-h-84' alt="bannerPic"/>
                     </div>
                     <h1 className='mt-6 text-5xl text-center font-semibold'>{post.title}</h1>
                     <p className='mt-4 text-3xl text-center font-light'>{post.summary}</p>

@@ -26,7 +26,7 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/register" element={<Register />} />
     <Route path="/create" element={<CreatePost />} />
     <Route path="/posts/:postId" element={<Post />} />
-    <Route path="/edit" element={<EditPost />} />
+    <Route path="/posts/:postId/edit" element={<EditPost />} />
     
   </Route>
 ))

@@ -8,7 +8,7 @@ const Card = ({post}) => {
         <article className="mb-6 w-full mx-auto  md:max-w-2xl overflow-hidden rounded-lg shadow transition hover:shadow-lg md:flex">
             <img
                 alt="Office"
-                src={`${post.bannerPic.url}`}
+                src={`${post.bannerPic?.url}`}
                 className="h-36 w-full object-cover md:h-56"
             />
 

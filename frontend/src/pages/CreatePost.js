@@ -60,12 +60,13 @@ const CreatePost = () => {
             ...input,
             bannerPic: e.target.files[0]
         })
+        console.log(input)
     }
 
 
     return (
         <div className='w-3/4 md:max-w-2xl mx-auto'>
-            <h1 className='mb-8 text-3xl font-semibold'>Create a new post</h1>
+            <h1 className='mb-8 text-3xl font-semibold dark:text-white'>Create a new post</h1>
             <form encType="multipart/form-data">
                 <div className="mb-6">
                     <input type="text" name="title" value={input.title} onChange={(e) => changeState(e)} id="title" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Title" required />
