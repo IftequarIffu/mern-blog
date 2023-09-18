@@ -96,7 +96,7 @@ const EditPost = () => {
                 {/* <textarea id="message" rows={8} className="block p-2.5 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Post content here..." defaultValue={""} /> */}
 
                 <div className='rounded-full'>
-                    <ReactQuill theme="snow" className='rounded-full mb-6' modules={modules} formats={formats} value={post.content} onChange={(newValue) => setPost({...post, content: newValue})}/>
+                    <ReactQuill theme="snow" className='rounded-full mb-20' style={{height: '200px'}} modules={modules} formats={formats} value={post.content} onChange={(newValue) => setPost({...post, content: newValue})}/>
                 </div>
                 <div className='flex space-x-4'>
 

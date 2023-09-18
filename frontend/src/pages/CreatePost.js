@@ -80,7 +80,7 @@ const CreatePost = () => {
                 {/* <textarea id="message" rows={8} className="block p-2.5 mb-6 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Post content here..." defaultValue={""} /> */}
 
                 <div className='rounded-full'>
-                    <ReactQuill theme="snow" name="content" className='rounded-full mb-6 dark:text-white' modules={modules} formats={formats} value={input.content} onChange={(newValue) => setInput({ ...input, content: newValue })} />
+                    <ReactQuill theme="snow" name="content" className='rounded-full mb-20 dark:text-white' style={{height: '200px'}} modules={modules} formats={formats} value={input.content} onChange={(newValue) => setInput({ ...input, content: newValue })} />
                 </div>
                 <div className='flex space-x-4'>
 
