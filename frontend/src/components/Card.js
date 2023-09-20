@@ -9,7 +9,7 @@ const Card = ({post}) => {
             <img
                 alt="Office"
                 src={`${post.bannerPic?.url}`}
-                className="h-36 w-full object-cover md:h-56"
+                className="h-36 w-full md:h-56 object-fill"
             />
 
             <div className="bg-white p-4 sm:p-6 dark:bg-slate-900 dark:text-white">

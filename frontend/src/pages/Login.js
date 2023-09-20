@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 
+import {toast} from 'react-toastify';
+
+
 const Login = () => {
 
     const [inputData, setInputData] = useState({})
@@ -17,9 +20,11 @@ const Login = () => {
             const response = await axios.post('http://localhost:1111/login', payload)
             console.log(response)
             if(response.status === 200){
+                toast.success('Logged In')
                 navigate("/")
             }
         } catch (error) {
+            toast.error("Login failed")
             console.log(error.response.data)
         }
     }

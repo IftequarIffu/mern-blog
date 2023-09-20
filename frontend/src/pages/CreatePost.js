@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import {toast} from 'react-toastify';
+
 
 const CreatePost = () => {
 
@@ -27,13 +29,20 @@ const CreatePost = () => {
 
     const createPost = async (e) => {
         e.preventDefault()
-        const formData = new FormData()
-        formData.append('title', input.title)
-        formData.append('summary', input.summary)
-        formData.append('content', input.content)
-        formData.append('bannerPic', input.bannerPic)
-        const response = await axios.post('http://localhost:1111/posts/new', formData)
-        console.log(response)
+        try {
+            const formData = new FormData()
+            formData.append('title', input.title)
+            formData.append('summary', input.summary)
+            formData.append('content', input.content)
+            formData.append('bannerPic', input.bannerPic)
+            const response = await axios.post('http://localhost:1111/posts/new', formData)
+            toast.success("Post created")
+            console.log(response)
+        } catch (error) {
+            toast.error("Something went wrong")
+            console.log(error)
+        }
+        
 
     }
 

@@ -3,6 +3,8 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import {toast} from 'react-toastify';
+
 
 const EditPost = () => {
 
@@ -55,8 +57,10 @@ const EditPost = () => {
             formData.append('content', post.content)
             formData.append('bannerPic', post.bannerPic)
             const response = await axios.post(`http://localhost:1111/posts/${postId}/edit`, formData)
+            toast.success("Edit successful")
             console.log(response)
         } catch (error) {
+            toast.error("Edit operation failed")
             console.log(error)
         }
         

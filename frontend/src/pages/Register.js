@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 
 const Register = () => {
@@ -18,10 +19,11 @@ const Register = () => {
             const response = await axios.post('http://localhost:1111/register', payload)
             console.log(response)
             if(response.status === 200){
-                
+                toast.success("Registration successful")
                 navigate("/login")
             }
         } catch (error) {
+            toast.error("Registration failed")
             console.log(error.response.data)
         }
 
