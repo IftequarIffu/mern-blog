@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import axios from 'axios'
+import Hero from '../components/Hero'
 
 const Homepage = () => {
 
@@ -34,6 +35,9 @@ const Homepage = () => {
           <Card />
           <Card /> */}
 
+          <Hero />
+          <h1 className='text-center  text-4xl dark:text-white font-light'>All Articles</h1>
+          <div className="grid md:grid-cols-2 w-4/5 mx-auto">
           {
             posts ? (
               posts.map((post) => {
@@ -41,8 +45,9 @@ const Homepage = () => {
               })
             ) : (<h1 className='text-center text-white'>Loading ...</h1>)
               
-            
+          
           }
+          </div>
     </div>
   )
 }

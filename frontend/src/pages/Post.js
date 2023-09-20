@@ -35,7 +35,7 @@ const Post = () => {
 
 
     return (
-        <div className='w-4/5 md:max-w-3xl mx-auto dark:text-white '>
+        <div className='w-4/5 md:max-w-3xl mx-auto dark:text-white pt-4'>
             
             {
                 post ? (

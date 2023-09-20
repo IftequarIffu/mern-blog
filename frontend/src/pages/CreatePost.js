@@ -65,7 +65,7 @@ const CreatePost = () => {
 
 
     return (
-        <div className='w-3/4 md:max-w-2xl mx-auto'>
+        <div className='w-3/4 md:max-w-2xl mx-auto pt-4'>
             <h1 className='mb-8 text-3xl font-semibold dark:text-white'>Create a new post</h1>
             <form encType="multipart/form-data">
                 <div className="mb-6">

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Card = ({post}) => {
     return (
-        <div className='mb-6 w-4/5 mx-auto md:max-w-2xl mt-8'>
+        <div className='mb-6 w-full mx-auto md:max-w-xl mt-8'>
         <Link to={`/posts/${post._id}`}>
         <article className="mb-6 w-full mx-auto  md:max-w-2xl overflow-hidden rounded-lg shadow transition hover:shadow-lg md:flex">
             <img
@@ -12,7 +12,7 @@ const Card = ({post}) => {
                 className="h-36 w-full object-cover md:h-56"
             />
 
-            <div className="bg-white p-4 sm:p-6 dark:bg-slate-800 dark:text-white">
+            <div className="bg-white p-4 sm:p-6 dark:bg-slate-900 dark:text-white">
                 <time dateTime="2022-10-10" className="block text-xs text-gray-500 dark:text-white">
                     {post.createdAt}
                 </time>
