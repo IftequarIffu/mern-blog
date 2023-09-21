@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import Spinner from '../components/Spinner'
 
 const Post = () => {
 
@@ -15,14 +16,9 @@ const Post = () => {
         const getPost = async (postId) => {
 
             const response = await axios.get(`http://localhost:1111/posts/${postId}`)
-            const post = response.data
-            // console.log(post)
-            setPost(post)
-            // if(post){
-            //     const tag = await document.getElementById("content")
-            //     tag.innerHTML = post.content
-            //     console.log(tag)
-            // }
+            const responseData = response.data
+            console.log(responseData)
+            setPost(responseData)
 
         }
 
@@ -31,6 +27,7 @@ const Post = () => {
         
 
     }, [postId])
+
 
 
 
@@ -45,23 +42,9 @@ const Post = () => {
                     </div>
                     <h1 className='mt-6 text-5xl text-center font-semibold'>{post.title}</h1>
                     <p className='mt-4 text-3xl text-center font-light'>{post.summary}</p>
-                    <p className='mt-4 text-xl p-2' id="content">
-                        {/* {
-                            () => {
-                                if(post){
-                                    const tag = document.getElementById("content")
-                                    tag.innerHTML = post.content
-                                    console.log(tag)
-                                }
-                                else{
-                                    const tag = document.getElementById("content")
-                                    tag.innerHTML = null
-                                }
-                            }
-                        } */}
-                    </p>
+                        <div dangerouslySetInnerHTML={{ __html: post.content }} />
                     </div>
-                ) : (<h1>Loading</h1>)
+                ) : (<Spinner />)
             }
             
             

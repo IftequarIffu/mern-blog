@@ -4,6 +4,7 @@ import axios from 'axios'
 import { setUserInfo, unsetUserInfo } from '../slices/authSlice'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom';
 import Switcher from './Switcher'
 
 
@@ -11,7 +12,9 @@ const Navbar = () => {
 
     const userInfo = useSelector((state) => state.userInfo)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
+    
 
     useEffect(() => {
 
@@ -34,12 +37,14 @@ const Navbar = () => {
         }
 
         getUserInfo()
-
+        // navigate("/")
+        
 
     }, [])
 
-
-
+    
+    // navigate("/")
+    
     const isLoggedIn = userInfo !== null
 
 
@@ -68,7 +73,7 @@ const Navbar = () => {
                                         <Link to="/create" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Create Post</Link>
                                     </li>
                                     <li>
-                                        <a href="http://localhost:1111/logout" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</a>
+                                        <Link to="http://localhost:1111/logout" className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Logout</Link>
                                     </li>
                                 </ul>
                             )

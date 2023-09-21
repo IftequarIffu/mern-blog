@@ -10,9 +10,9 @@ import CreatePost from './pages/CreatePost';
 import Post from './pages/Post';
 import EditPost from './pages/EditPost';
 import { Provider } from 'react-redux';
+import ProtectedRoute from './pages/ProtectedRoute';
 import {store} from './store'
 import axios from 'axios';
-import 'react-toastify/dist/ReactToastify.css';
 
 axios.defaults.withCredentials = true
 
@@ -24,10 +24,11 @@ const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" index={true} element={<Homepage />} />
     <Route path="/login" element={<Login />} />
     <Route path="/register" element={<Register />} />
-    <Route path="/create" element={<CreatePost />} />
     <Route path="/posts/:postId" element={<Post />} />
-    <Route path="/posts/:postId/edit" element={<EditPost />} />
-    
+    <Route element={<ProtectedRoute />}>
+      <Route path="/create" element={<CreatePost />} />
+      <Route path="/posts/:postId/edit" element={<EditPost />} />
+    </Route>
   </Route>
 ))
 
