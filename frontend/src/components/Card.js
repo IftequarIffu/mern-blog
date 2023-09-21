@@ -15,14 +15,12 @@ const Card = ({post}) => {
 
             try {
                 const response = await axios.get(`http://localhost:1111/users/${userId}`)
-                console.log(response.data)
                 setUser(response.data)
                 
             } catch (error) {
                 console.log(error)
             }
             
-
         }
 
         getUserById(post.authorId)

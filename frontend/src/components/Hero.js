@@ -1,6 +1,11 @@
 import React from 'react'
+import { UseSelector, useSelector } from 'react-redux'
 
 const Hero = () => {
+
+  const posts = useSelector((state) => state.posts)
+  console.log(posts)
+
   return (
     <div className='border-b-2 border-gray-300 dark:border-b-1 dark:border-gray-700 py-4 bg-zinc-200 dark:bg-inherit'>
         <div className='w-1/2 mx-auto py-10 '>

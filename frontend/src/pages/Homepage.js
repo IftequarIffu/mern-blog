@@ -4,11 +4,15 @@ import axios from 'axios'
 import Hero from '../components/Hero'
 import Footer from '../components/Footer'
 import Spinner from '../components/Spinner'
+import { useSelector, useDispatch } from 'react-redux'
+import {setPosts} from '../slices/postsSlice'
 
 const Homepage = () => {
 
   
-  const [posts, setPosts] = useState(null)
+  const [postsList, setPostsList] = useState(null)
+  const posts = useSelector((state) => state.posts)
+  const dispatch = useDispatch()
 
   useEffect(() => {
 
@@ -19,7 +23,8 @@ const Homepage = () => {
         const response = await axios.get("http://localhost:1111/posts")
         const posts = response.data
         // console.log(posts)
-        setPosts(posts)
+        // setPostsList(posts)
+        dispatch(setPosts(posts))
 
       } catch (error) {
         console.log(error)
@@ -28,8 +33,9 @@ const Homepage = () => {
     }
     getPosts()
 
-
   }, [])
+
+
 
 
   return (
