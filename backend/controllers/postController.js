@@ -55,10 +55,10 @@ const createPost = (asyncHandler(async (req, res) => {
         
         let newPost = null;
         if(cloudinary_result){
-            newPost = await postModel.create({title, summary, bannerPic: { public_id: cloudinary_result.public_id, url: cloudinary_result.secure_url}, content})
+            newPost = await postModel.create({title, summary, bannerPic: { public_id: cloudinary_result.public_id, url: cloudinary_result.secure_url}, content, authorId: req.user.id})
         }
         else{
-            newPost = await postModel.create({title, summary, content})
+            newPost = await postModel.create({title, summary, content, authorId: req.user.id})
         }
         res.status(200)
         res.json(newPost)

@@ -14,23 +14,24 @@ const postSchema = mongoose.Schema({
         type: {
             public_id:{
                 type: String,
-                required: true
             },
             url:{
                 type: String,
                 required: true
             }
+        },
+        default:{
+            url:"https://picsum.photos/500/600"
         }
     },
     content:{
         type: String,
         required: true
     },
-    author:{
+    authorId:{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'userModel',
-        required: true,
-        default: '64feb0d3dfb6517f23038423'
+        required: true
     }
 },
 {

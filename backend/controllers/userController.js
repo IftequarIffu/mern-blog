@@ -2,6 +2,7 @@ const asyncHandler = require('express-async-handler')
 const userModel = require('../models/userModel')
 const {hashPassword, generateToken, comparePassword } = require('../utils/authUtils')
 const jwt = require('jsonwebtoken')
+const { default: mongoose } = require('mongoose')
 
 
 
@@ -103,7 +104,21 @@ const logOut = asyncHandler(async (req, res) => {
 
 })
 
+const getUserById = asyncHandler(async (req, res) => {
+
+    try {
+        
+        const user = await userModel.findById(req.params.userId)
+        // console.log(user)
+        res.status(200)
+        res.json(user)
+    } catch (error) {
+        console.log(error)
+        throw new Error(error)
+    }
+})
 
 
 
-module.exports = { loginMethod, registerMethod, isLoggedIn, logOut }
+
+module.exports = { loginMethod, registerMethod, isLoggedIn, logOut, getUserById }

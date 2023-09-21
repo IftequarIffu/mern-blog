@@ -7,6 +7,7 @@ import Spinner from '../components/Spinner'
 
 const Homepage = () => {
 
+  
   const [posts, setPosts] = useState(null)
 
   useEffect(() => {

@@ -1,5 +1,5 @@
 const express = require('express')
-const {loginMethod, registerMethod, isLoggedIn, logOut} = require('../controllers/userController')
+const {loginMethod, registerMethod, isLoggedIn, logOut, getUserById} = require('../controllers/userController')
 const passport = require('passport')
 const {generateToken} = require('../utils/authUtils')
 
@@ -28,5 +28,7 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
   userRouter.get('/isLoggedIn', isLoggedIn)
 
   userRouter.get('/logout', logOut)
+
+  userRouter.get('/users/:userId', getUserById)
 
   module.exports = userRouter
