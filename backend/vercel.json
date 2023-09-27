@@ -1,6 +1,6 @@
 {
   "name": "my-mern-backend",
-  "version": 1,
+  "version": 2,
   "installCommand": "npm install",
   "devCommand":  "npm run dev"
 }
