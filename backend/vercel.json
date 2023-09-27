@@ -1,14 +1,9 @@
 {
-    "version": 2,
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
-        }
-    ],
-    "functions": {
-        "./*.js": {
-          "runtime": "nodejs18.x"
-        }
-      }
+  "name": "my-mern-backend",
+  "version": "1.0.0",
+  "runtime": "nodejs/18",
+  "buildCommand": "npm install && node server.js",
+  "scripts": {
+    "build": "npm install && node server.js"
+  }
 }
