@@ -1,8 +1,6 @@
 {
   "name": "my-mern-backend",
   "version": "1.0.0",
-  "buildCommand": "npm install && node server.js",
-  "scripts": {
-    "build": "npm install && node server.js"
-  }
+  "installCommand": "npm install",
+  "devCommand":  "npm run dev"
 }
