@@ -17,7 +17,7 @@ const Post = () => {
 
         const getPost = async (postId) => {
 
-            const response = await axios.get(`http://localhost:1111/posts/${postId}`)
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URI}/posts/${postId}`)
             const responseData = response.data
             console.log(userInfo)
             setPost(responseData)

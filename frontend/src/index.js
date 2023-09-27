@@ -17,8 +17,6 @@ import axios from 'axios';
 axios.defaults.withCredentials = true
 
 
-
-
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<App />}>
     <Route path="/" index={true} element={<Homepage />} />

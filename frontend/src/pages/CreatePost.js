@@ -35,7 +35,7 @@ const CreatePost = () => {
             formData.append('summary', input.summary)
             formData.append('content', input.content)
             formData.append('bannerPic', input.bannerPic)
-            const response = await axios.post('http://localhost:1111/posts/new', formData)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URI}/posts/new`, formData)
             toast.success("Post created")
             console.log(response)
         } catch (error) {

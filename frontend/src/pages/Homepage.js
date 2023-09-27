@@ -12,7 +12,7 @@ const Homepage = () => {
 
   const [posts, setPosts] = useState(null)
   const [filteredPosts, setFilteredPosts] = useState(null)
-  const [query, setQuery] = useState(null)
+  const [query, setQuery] = useState("")
   // const [postsList, setPostsList] = useState(useSelector((state) => state.posts))
   // const dispatch = useDispatch()
 
@@ -22,7 +22,7 @@ const Homepage = () => {
 
       try {
 
-        const response = await axios.get("http://localhost:1111/posts")
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URI}/posts`)
         const posts = response.data
         // console.log(posts)
         // setPostsList(posts)

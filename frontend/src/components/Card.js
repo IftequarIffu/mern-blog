@@ -14,7 +14,8 @@ const Card = ({post}) => {
         const getUserById = async(userId) => {
 
             try {
-                const response = await axios.get(`http://localhost:1111/users/${userId}`)
+                // console.log("Server URI is ", process.env.REACT_APP_SERVER_URI)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URI}/users/${userId}`)
                 setUser(response.data)
                 
             } catch (error) {
@@ -48,10 +49,10 @@ const Card = ({post}) => {
                         {post.title}
                     </h3>
 
-                <p className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-white">
+        
                     
-                    <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                </p>
+                    <div className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-white" dangerouslySetInnerHTML={{ __html: post.content }} />
+                
 
                 <div className='flex mt-4 space-x-2 items-center dark:text-white'>
                     <img className="w-5 h-5 rounded-full" src="https://source.unsplash.com/random" alt="Rounded avatar" />

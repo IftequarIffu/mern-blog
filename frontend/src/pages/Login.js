@@ -17,7 +17,7 @@ const Login = () => {
         e.preventDefault()
         const payload  = inputData
         try {
-            const response = await axios.post('http://localhost:1111/login', payload)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URI}/login`, payload)
             console.log(response)
             if(response.status === 200){
                 toast.success('Logged In')
@@ -55,7 +55,7 @@ const Login = () => {
                 
                 <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login</button>
                 
-                <Link to="http://localhost:1111/auth/google">
+                <Link to={`${process.env.REACT_APP_SERVER_URI}/auth/google`}>
                 <div className='mt-4'>
                 <button type="button" className="text-white w-full justify-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-blue-800 mr-2 mb-2">
                     <svg className="w-4 h-4 mr-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 19">

@@ -35,7 +35,7 @@ const EditPost = () => {
         const getPost = async(postId) => {
 
             try {
-                const response = await axios.get(`http://localhost:1111/posts/${postId}`)
+                const response = await axios.get(`${process.env.REACT_APP_SERVER_URI}/posts/${postId}`)
                 const postData = response.data
                 setPost(postData)
             } catch (error) {
@@ -56,7 +56,7 @@ const EditPost = () => {
             formData.append('summary', post.summary)
             formData.append('content', post.content)
             formData.append('bannerPic', post.bannerPic)
-            const response = await axios.post(`http://localhost:1111/posts/${postId}/edit`, formData)
+            const response = await axios.post(`${process.env.REACT_APP_SERVER_URI}/posts/${postId}/edit`, formData)
             toast.success("Edit successful")
             console.log(response)
         } catch (error) {
