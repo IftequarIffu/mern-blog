@@ -14,8 +14,7 @@ const Navbar = () => {
     const userInfo = useSelector((state) => state.userInfo)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-
-    
+    const [forceRerender, setForceRerender] = useState(false);
 
     useEffect(() => {
 
@@ -30,6 +29,7 @@ const Navbar = () => {
                 const userInfo = { userId, userName }
                 // console.log(userInfo)
                 dispatch(setUserInfo(userInfo))
+                setForceRerender(true);
 
             } catch (error) {
                 dispatch(unsetUserInfo())
@@ -39,12 +39,12 @@ const Navbar = () => {
 
         getUserInfo()
         // navigate("/")
-        
 
-    }, [])
+    }, [dispatch])
 
     
     // navigate("/")
+    // window.location.reload()
     
     const isLoggedIn = userInfo !== null
 
