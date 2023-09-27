@@ -43,3 +43,5 @@ app.use(errorHandler)
 app.listen(port, () => {
     console.log(`API started on port ${port} successfully`)
 })
+
+module.exports = app

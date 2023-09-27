@@ -1,6 +1,16 @@
 {
-  "name": "my-mern-backend",
   "version": 2,
-  "installCommand": "npm install",
-  "devCommand":  "npm run dev"
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
 }
