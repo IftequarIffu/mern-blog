@@ -1,6 +1,6 @@
 const corsConfig = {
     credentials: true,
-    origin: ['http://localhost:3000', 'http://localhost:1111']
+    origin: [process.env.CLIENT_URI, process.env.SERVER_URI]
 }
 
 module.exports = corsConfig
