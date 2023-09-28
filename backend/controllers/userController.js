@@ -64,7 +64,11 @@ const loginMethod = asyncHandler(async (req, res) => {
             const token = generateToken({userId, userName})
             // console.log(token)
             res.cookie('jwt', token, {
-                expiresIn: '30d'
+                expiresIn: '30d',
+                httpOnly: true,
+                path: "/",
+                secure: true,
+                sameSite: 'strict'
             })
 
             res.status(200)

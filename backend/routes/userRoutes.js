@@ -18,8 +18,12 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
     const userName = req.user.name
     const token = generateToken({userId, userName})
     res.cookie('jwt', token, {
-        expiresIn: '30d'
-    })
+      expiresIn: '30d',
+      httpOnly: true,
+      path: "/",
+      secure: true,
+      sameSite: 'strict'
+  })
     // res.status(200)
     // res.json("Successful")
     res.redirect(process.env.CLIENT_URI)
