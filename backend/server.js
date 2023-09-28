@@ -29,7 +29,7 @@ app.use(passport.initialize());
 app.use(cookieParser())
 
 
-// Fix for cors error when deploying on vercel
+// Fix for cors error when deploying on vercel.
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", process.env.CLIENT_URI)
     res.header("Access-Control-Allow-Credentials", true)
