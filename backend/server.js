@@ -28,7 +28,6 @@ app.use(express.json())
 app.use(cors(corsConfig))
 app.use(passport.initialize());
 app.use(cookieParser())
-app.use(protect)
 
 
 // Fix for cors error when deploying on vercel.
@@ -50,6 +49,7 @@ app.get('/', (req, res) => {
     res.json("Hello World")
 })
 
+app.use(protect)
 
 app.use(errorHandler)
 
