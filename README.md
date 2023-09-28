@@ -16,4 +16,5 @@ Link: https://mern-blog-frontend-ashy.vercel.app/
 * Deployed on Vercel.
 * React toasts for notifications.
 * Dark mode available.
+* Mark Down support for creating posts.
   
