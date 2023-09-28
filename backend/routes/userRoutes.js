@@ -18,7 +18,7 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
     const userName = req.user.name
     const token = generateToken({userId, userName})
     res.cookie('jwt', token, {
-      expiresIn: '30d',
+      maxAge: 30 * 24 * 60 * 60 * 1000,
       httpOnly: true,
       path: "/",
       secure: true,
