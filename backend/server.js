@@ -31,15 +31,15 @@ app.use(cookieParser())
 
 
 // Fix for cors error when deploying on vercel.
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", process.env.CLIENT_URI)
-    res.header("Access-Control-Allow-Credentials", true)
-    if(req.method === "OPTIONS"){
-        res.header("Access-Control-Allow-Methods", "PUT", "POST", "PATCH", "DELETE", "GET")
-        return res.status(200).json({})
-    }
-    next()
-})
+// app.use((req, res, next) => {
+//     res.header("Access-Control-Allow-Origin", process.env.CLIENT_URI)
+//     res.header("Access-Control-Allow-Credentials", true)
+//     if(req.method === "OPTIONS"){
+//         res.header("Access-Control-Allow-Methods", "PUT", "POST", "PATCH", "DELETE", "GET")
+//         return res.status(200).json({})
+//     }
+//     next()
+// })
 
 app.use('/', userRouter)
 app.use('/posts', postRouter)
