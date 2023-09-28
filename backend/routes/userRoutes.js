@@ -22,7 +22,7 @@ userRouter.get('/auth/google/callback', passport.authenticate('google', { failur
       httpOnly: true,
       path: "/",
       secure: true,
-      sameSite: 'strict'
+      sameSite: 'none'
   })
     // res.status(200)
     // res.json("Successful")

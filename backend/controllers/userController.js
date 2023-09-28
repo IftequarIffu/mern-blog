@@ -68,7 +68,7 @@ const loginMethod = asyncHandler(async (req, res) => {
                 httpOnly: true,
                 path: "/",
                 secure: true,
-                sameSite: 'strict'
+                sameSite: 'none'
             })
 
             res.status(200)
