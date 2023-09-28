@@ -14,7 +14,7 @@ const Navbar = () => {
     const userInfo = useSelector((state) => state.userInfo)
     const dispatch = useDispatch()
     const navigate = useNavigate()
-    const [forceRerender, setForceRerender] = useState(false);
+    // const [forceRerender, setForceRerender] = useState(false);
 
     useEffect(() => {
 
@@ -29,7 +29,7 @@ const Navbar = () => {
                 const userInfo = { userId, userName }
                 // console.log(userInfo)
                 dispatch(setUserInfo(userInfo))
-                setForceRerender(true);
+                // setForceRerender(true);
 
             } catch (error) {
                 dispatch(unsetUserInfo())
