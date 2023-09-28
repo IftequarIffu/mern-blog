@@ -2,6 +2,8 @@
 
 A full stack blog application built in MERN stack.
 
+Link: https://mern-blog-frontend-ashy.vercel.app/
+
 ## Tech used:
 * MongoDB + Mongoose for Database.
 * React.js on the frontend.
@@ -11,3 +13,4 @@ A full stack blog application built in MERN stack.
 * Passport.js for Oauth 2.0
 * Cloudinary for Image Storage.
 * Json Web Token (JWT) for Auth.
+* Deployed on Vercel
