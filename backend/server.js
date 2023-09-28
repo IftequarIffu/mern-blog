@@ -14,6 +14,7 @@ const upload = multer({storage})
 
 const userRouter = require('./routes/userRoutes')
 const postRouter = require('./routes/postRoutes')
+const protect = require('./middleware/authMiddleware')
 
 
 const port = process.env.EXPRESS_PORT || 4321
@@ -27,6 +28,7 @@ app.use(express.json())
 app.use(cors(corsConfig))
 app.use(passport.initialize());
 app.use(cookieParser())
+app.use(protect)
 
 
 // Fix for cors error when deploying on vercel.
