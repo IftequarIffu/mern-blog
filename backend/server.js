@@ -49,7 +49,6 @@ app.get('/', (req, res) => {
     res.json("Hello World")
 })
 
-app.use(protect)
 
 app.use(errorHandler)
 
