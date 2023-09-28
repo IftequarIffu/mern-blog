@@ -32,6 +32,7 @@ const Navbar = () => {
                 // setForceRerender(true);
 
             } catch (error) {
+                console.log(error)
                 dispatch(unsetUserInfo())
             }
 
