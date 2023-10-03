@@ -49,7 +49,6 @@ const Card = ({post}) => {
                         {post.title}
                     </h3>
 
-        
                     
                     <div className="mt-2 line-clamp-3 text-sm/relaxed text-gray-500 dark:text-white" dangerouslySetInnerHTML={{ __html: post.content }} />
                 
